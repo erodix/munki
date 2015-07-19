@@ -364,7 +364,7 @@ def add_to_keychain_list(keychain_path):
     if not keychain_path in search_keychains:
         # Keychain is not in the search paths
         munkicommon.display_debug2('Adding client keychain to search path...')
-        search_keychains.append(keychain_path)
+        search_keychains.insert(0, keychain_path)
         try:
             output = security(
                 'list-keychains', '-d', 'user', '-s', *search_keychains)
